@@ -1,5 +1,8 @@
 #pragma once
 #include "item.h"
+#include <algorithm>
+#include <iostream>
+#include <vector>
 
 class inventory
 {
@@ -78,7 +81,7 @@ void inventory::addItem(item q)
 void inventory::removeItem(item q)
 {
 	std::vector<item> contents;
-	for (int i = 0; i < items.size(); i++)
+	for (std::size_t i = 0; i < items.size(); i++)
 	{
 		if (q.equals(contents.at(i))) continue;
 		else contents.push_back(contents.at(i));
