@@ -1,8 +1,8 @@
 #pragma once
 #include <SFML/Graphics.hpp>
-#include "util.h";
-#include "player.h";
-#include "gif.h";
+#include "util.h"
+#include "player.h"
+#include "gif.h"
 
 void titleState(sf::RenderWindow&, sf::Event&, std::vector<sf::Sprite>&);
 
