@@ -4,7 +4,7 @@
 class gif
 {
 	public:
-		gif(int fps, int maxFps, int number, const std::vector<sf::Texture>& textures);
+		gif(int maxFps, int number, const std::vector<sf::Texture>& textures);
 		~gif();
 		int getNumber();
 		std::vector<sf::Texture>& getTextures();
@@ -19,9 +19,6 @@ class gif
 		void subtractMaxFps(int);
 		sf::Texture& getNext();
 		int getFps();
-		void setFps(int);
-		void addFps(int);
-		void subtractFps(int);
 	private:
 		int fps;
 		int maxFps;
@@ -34,9 +31,9 @@ gif::~gif()
 	std::cout << "Object is being deleted";
 }
 
-gif::gif(int d, int a, int b, const std::vector<sf::Texture>& c)
+gif::gif(int a, int b, const std::vector<sf::Texture>& c)
 {
-	fps = d;
+	fps = 0;
 	maxFps = a;
 	number = b;
 	textures = c;
@@ -115,21 +112,4 @@ void gif::subtractMaxFps(int q)
 int gif::getFps()
 {
 	return fps;
-}
-
-void gif::setFps(int q)
-{
-	fps = q;
-}
-
-void gif::addFps(int q)
-{
-	if ((fps + q) > maxFps) fps = 0;
-	else fps += q;
-}
-
-void gif::subtractFps(int q)
-{
-	if ((fps - q) < 0) fps = 0;
-	else fps -= q;
 }

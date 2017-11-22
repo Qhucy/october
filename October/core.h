@@ -36,7 +36,7 @@ void core()
 	}
 }
 
-gif tsBackground = gif(0, 4, 0, getTSBackgroundGif());
+gif tsBackground = gif(4, 0, getTSBackgroundGif());
 sf::Sprite background;
 
 void titleState(sf::RenderWindow& window, sf::Event& event, std::vector<sf::Sprite>& q)

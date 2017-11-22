@@ -3,7 +3,7 @@
 
 int main()
 {
-	loadCore();
+	loadUids();
 	core();
 	return 0;
 }
