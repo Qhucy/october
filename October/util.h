@@ -44,7 +44,7 @@ void saveUids()
 	std::ofstream ofs("uids.txt", std::ofstream::out | std::ofstream::trunc);
 	ofs.close();
 	std::fstream file("uids.txt", std::ios::out);
-	for (int i = 0; i < uids.size(); i++)
+	for (std::size_t i = 0; i < uids.size(); i++)
 	{
 		file << uids.at(i);
 	}

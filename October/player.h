@@ -2,9 +2,12 @@
 #include <SFML/Graphics.hpp>
 #include <fstream>
 #include <regex>
-#include "item.h";
-#include "quest.h";
-#include "inventory.h";
+#include <string>
+#include <vector>
+#include "item.h"
+#include "quest.h"
+#include "inventory.h"
+#include "util.h"
 
 enum gameLevel
 {
@@ -199,7 +202,7 @@ void player::saveStats()
 	std::fstream file(uid + ".txt", std::ios::out);
 	file << name << std::endl
 		<< coins << ":" << strength << ":" << defense << ":" << agility << ":" << level << ":" << gl << ":" << health << ":" << maxHealth << ":" << curQuest << std::endl;
-	for (int i = 0; i < comQuests.size(); i++)
+	for (std::size_t i = 0; i < comQuests.size(); i++)
 	{
 		if (i == 0) file << comQuests.at(i);
 		else file << ":" << comQuests.at(i);
