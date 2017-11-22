@@ -1,5 +1,8 @@
 #pragma once
 #include "item.h"
+#include <iostream>
+#include <string>
+#include <vector>
 
 enum class quests
 {
@@ -161,9 +164,9 @@ void quest::setRewards(std::vector<item> q)
 void quest::setReward(int a, item q)
 {
 	std::vector<item> r;
-	for (int i = 0; i < rewards.size(); i++)
+	for (std::size_t i = 0; i < rewards.size(); i++)
 	{
-		if (i == a) r.push_back(q);
+		if (i == std::size_t(a)) r.push_back(q);
 		else r.push_back(rewards.at(i));
 	}
 	rewards = r;
@@ -177,7 +180,7 @@ void quest::addReward(item q)
 void quest::removeReward(item q)
 {
 	std::vector<item> r;
-	for (int i = 0; i < rewards.size(); i++)
+	for (std::size_t i = 0; i < rewards.size(); i++)
 	{
 		if (q.equals(rewards.at(i))) continue;
 		else r.push_back(rewards.at(i));
@@ -199,7 +202,7 @@ void quest::removeLastCondition()
 {
 	std::vector<bool> r;
 	if (conditions.size() < 2) { conditions = r; return; }
-	for (int i = 0; i < conditions.size(); i++)
+	for (std::size_t i = 0; i < conditions.size(); i++)
 	{
 		if ((i + 1) == conditions.size()) continue;
 		else r.push_back(conditions.at(i));
@@ -210,9 +213,9 @@ void quest::removeLastCondition()
 void quest::setCondition(int a, bool q)
 {
 	std::vector<bool> r;
-	for (int i = 0; i < conditions.size(); i++)
+	for (std::size_t i = 0; i < conditions.size(); i++)
 	{
-		if (i == a) r.push_back(q);
+		if (i == std::size_t(a)) r.push_back(q);
 		else r.push_back(conditions.at(i));
 	}
 	conditions = r;
@@ -226,9 +229,9 @@ void quest::setNeeded(std::vector<item> q)
 void quest::setNeeded(int a, item q)
 {
 	std::vector<item> r;
-	for (int i = 0; i < needed.size(); i++)
+	for (std::size_t i = 0; i < needed.size(); i++)
 	{
-		if (i == a) r.push_back(q);
+		if (i == std::size_t(a)) r.push_back(q);
 		else r.push_back(needed.at(i));
 	}
 	needed = r;
@@ -242,7 +245,7 @@ void quest::addNeeded(item q)
 void quest::removeNeeded(item q)
 {
 	std::vector<item> r;
-	for (int i = 0; i < needed.size(); i++)
+	for (std::size_t i = 0; i < needed.size(); i++)
 	{
 		if (q.equals(needed.at(i))) continue;
 		else r.push_back(needed.at(i));

@@ -1,5 +1,6 @@
 #pragma once
 #include <SFML/Graphics.hpp>
+#include <iostream>
 
 class gif
 {
@@ -41,15 +42,15 @@ gif::gif(int a, int b, const std::vector<sf::Texture>& c)
 
 sf::Texture& gif::getNext()
 {
-	sf::Texture texture = textures.at(number);
+	int num = number;
 	if ((fps + 1) >= maxFps)
 	{
 		fps = 0;
-		if ((number + 1) >= textures.size()) number = 0;
+		if (std::size_t(number + 1) >= textures.size()) number = 0;
 		else number++;
 	}
 	else fps++;
-	return texture;
+	return textures.at(num);
 }
 
 int gif::getNumber()
