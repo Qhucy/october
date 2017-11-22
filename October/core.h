@@ -42,7 +42,6 @@ sf::Sprite background;
 void titleState(sf::RenderWindow& window, sf::Event& event, std::vector<sf::Sprite>& q)
 {
 	background.setTexture(tsBackground.getNext());
-	background.setPosition(200, 200);
 	while (window.pollEvent(event))
 	{
 		if (event.type == sf::Event::Closed)
