@@ -6,7 +6,6 @@ class gif
 {
 	public:
 		gif(int maxFps, int number, const std::vector<sf::Texture>& textures);
-		~gif();
 		int getNumber();
 		std::vector<sf::Texture>& getTextures();
 		void setNumber(int);
@@ -26,11 +25,6 @@ class gif
 		int number;
 		std::vector<sf::Texture> textures;
 };
-
-gif::~gif()
-{
-	std::cout << "Object is being deleted";
-}
 
 gif::gif(int a, int b, const std::vector<sf::Texture>& c)
 {

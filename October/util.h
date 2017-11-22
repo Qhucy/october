@@ -1,5 +1,6 @@
 #pragma once
 #include <SFML/Graphics.hpp>
+#include <SFML/Audio.hpp>
 #include <fstream>
 #include <iostream>
 
@@ -29,32 +30,18 @@ std::string process(std::string const& s, char until)
 	else return s;
 }
 
-void loadUids()
-{
-	std::fstream file("uids.txt", std::ios::in);
-	std::string contents;
-	while (getline(file, contents))
-	{
-		uids.push_back(contents);
-	}
-}
+sf::Texture tst_start;
+sf::Texture tst_title;
+sf::Texture tst_exit;
+sf::SoundBuffer tsb_music;
 
-void saveUids()
-{
-	std::ofstream ofs("uids.txt", std::ofstream::out | std::ofstream::trunc);
-	ofs.close();
-	std::fstream file("uids.txt", std::ios::out);
-	for (std::size_t i = 0; i < uids.size(); i++)
-	{
-		file << uids.at(i);
-	}
-	file.close();
-}
+sf::Texture lst_button1;
+sf::Texture lst_button2;
 
 std::vector<sf::Texture> getTSBackgroundGif()
 {
 	std::vector<sf::Texture> q;
-	for (int i = 1; i <= 5; i++)
+	for (int i = 1; i <= 2; i++)
 	{
 		std::cout << "Loading file textures/titleState/backgroundGif/" + std::to_string(i) + ".jpg" << std::endl;
 		sf::Texture a;
@@ -62,4 +49,20 @@ std::vector<sf::Texture> getTSBackgroundGif()
 		q.push_back(a);
 	}
 	return q;
+}
+
+void setup()
+{
+	std::cout << "Loading file textures/titleState/start-button.png" << std::endl;
+	tst_start.loadFromFile("textures/titleState/start-button.png");
+	std::cout << "Loading file textures/titleState/title.png" << std::endl;
+	tst_title.loadFromFile("textures/titleState/title.png");
+	std::cout << "Loading file textures/titleState/exit-button.png" << std::endl;
+	tst_exit.loadFromFile("textures/titleState/exit-button.png");
+	std::cout << "Loading file sounds/titleState/music.wav" << std::endl;
+	tsb_music.loadFromFile("sounds/titleState/music.wav");
+	std::cout << "Loading file textures/titleState/button1.png" << std::endl;
+	lst_button1.loadFromFile("textures/titleState/button1.png");
+	std::cout << "Loading file textures/titleState/button2.png" << std::endl;
+	lst_button2.loadFromFile("textures/titleState/button2.png");
 }
