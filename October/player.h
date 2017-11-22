@@ -2,9 +2,12 @@
 #include <SFML/Graphics.hpp>
 #include <fstream>
 #include <regex>
+#include <string>
+#include <vector>
 #include "item.h"
 #include "quest.h"
 #include "inventory.h"
+#include "util.h"
 
 enum gameLevel
 {
