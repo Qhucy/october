@@ -1,4 +1,7 @@
 #pragma once
+#include <SFML/Graphics.hpp>
+#include <fstream>
+#include <iostream>
 
 const char alphanum[] = "0123456789!@#$%^&*ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz";
 
@@ -26,7 +29,7 @@ std::string process(std::string const& s, char until)
 	else return s;
 }
 
-void loadCore()
+void loadUids()
 {
 	std::fstream file("uids.txt", std::ios::in);
 	std::string contents;
@@ -36,10 +39,22 @@ void loadCore()
 	}
 }
 
+void saveUids()
+{
+	std::ofstream ofs("uids.txt", std::ofstream::out | std::ofstream::trunc);
+	ofs.close();
+	std::fstream file("uids.txt", std::ios::out);
+	for (int i = 0; i < uids.size(); i++)
+	{
+		file << uids.at(i);
+	}
+	file.close();
+}
+
 std::vector<sf::Texture> getTSBackgroundGif()
 {
 	std::vector<sf::Texture> q;
-	for (int i = 1; i < 2; i++)
+	for (int i = 1; i <= 5; i++)
 	{
 		std::cout << "Loading file textures/titleState/backgroundGif/" + std::to_string(i) + ".jpg" << std::endl;
 		sf::Texture a;

@@ -1,4 +1,8 @@
 #pragma once
+#include <SFML/Graphics.hpp>
+#include "util.h";
+#include "player.h";
+#include "gif.h";
 
 void titleState(sf::RenderWindow&, sf::Event&, std::vector<sf::Sprite>&);
 
@@ -43,6 +47,7 @@ void titleState(sf::RenderWindow& window, sf::Event& event, std::vector<sf::Spri
 	{
 		if (event.type == sf::Event::Closed)
 		{
+			saveUids();
 			window.close();
 			system("exit");
 			return;
