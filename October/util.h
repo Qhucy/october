@@ -41,7 +41,7 @@ sf::Texture lst_button2;
 std::vector<sf::Texture> getTSBackgroundGif()
 {
 	std::vector<sf::Texture> q;
-	for (int i = 1; i <= 2; i++)
+	for (int i = 1; i <= 1; i++)
 	{
 		std::cout << "Loading file textures/titleState/backgroundGif/" + std::to_string(i) + ".jpg" << std::endl;
 		sf::Texture a;
